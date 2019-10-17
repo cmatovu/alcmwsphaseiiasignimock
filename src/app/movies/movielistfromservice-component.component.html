@@ -1,5 +1,5 @@
 <p>movielistfromservice-component works!</p>
-<div *ngFor = "let movieactual of movies">
+<div [routerLink] = "['/movies',movieactual.movie_id ]"  *ngFor = "let movieactual of movies">
     <h3>List of Movies from Movies (template) </h3>
     <app-movie_icon #movieiconvariable
     (outputmovie_details) = "handlemovie_details($event)"
