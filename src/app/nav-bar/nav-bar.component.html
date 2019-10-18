@@ -1,5 +1,11 @@
-<div>
-    <ul>
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" >ngEvents</a>
+      </div>
+  
+      <div class="collapse navbar-collapse">
+      <ul>
         <li>
             <a routerLinkActive="active"
             routerLinkActiveOptions = "{exact:true}">  Home </a>
@@ -22,9 +28,18 @@
             routerLinkActiveOptions = "{exact:true}">  Login </a>
         </li>
         <li>
-            <a routerLinkActive="active"
-            routerLinkActiveOptions = "{exact:true}">  Search </a>
-        </li>
+
+            <form id="searchForm"  class="navbar-form navbar-right"  >
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search movies" >
+                </div>
+                <button class="btn btn-default" >
+                  Search
+                </button>
+              </form>
+                </li>
     </ul>
 
+</div>
+</div>
 </div>
