@@ -10,11 +10,16 @@ import { MovieserviceService } from './movies/shared/movieservice.service';
 import { MovieDetailsComponent } from './common/movie-details.component';
 import { appRoutes} from './nav-bar/routes';
 import { RouterLink, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { MoviehttpserviceService } from './movies/moviehttpservice.service';
+import { MovielistfromhttpserviceComponent } from './movies/movielistfromhttpservice.component';
+import { MovieListResolverService } from './movies/movie-list-resolver.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     Movie_iconComponent,
+    MovielistfromhttpserviceComponent,
     MoviesComponent,
     NavBarComponent,
     MovielistfromserviceComponentComponent,
@@ -22,10 +27,13 @@ import { RouterLink, RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [
-    MovieserviceService
+    MovieserviceService,
+    MoviehttpserviceService,
+    MovieListResolverService
   ],
   bootstrap: [AppComponent]
 })
