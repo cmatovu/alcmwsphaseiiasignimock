@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviehttpserviceService } from './moviehttpservice.service';
+import { IMovie } from './shared/movie.model';
+import { ActivatedRoute } from '@angular/router';
+//import { IMovie } from './shared';
 
 @Component({
   selector: 'app-movielistfromhttpservice',
@@ -8,9 +11,11 @@ import { MoviehttpserviceService } from './moviehttpservice.service';
 })
 export class MovielistfromhttpserviceComponent implements OnInit {
 
+ // movies: IMovie[]
   movies: any
   
-  constructor(private movieService:MoviehttpserviceService) { 
+  constructor(private movieService:MoviehttpserviceService,
+    private route: ActivatedRoute) { 
 
   }
 
@@ -31,8 +36,8 @@ handlefavorite_movie(data)   {
 
 
   ngOnInit() {
-//    this.movies = this.movies.getMovies();
-    this.movies = this.movieService.getMovies();
+    this.movies = this.route.snapshot.data['movies']
+  console.log('At Component Movies are ' + this.movies );
 
   }
 

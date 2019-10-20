@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
  // `,
   template: `<h1> Hello cm ALC Phase II Assignment</h1>
   <h2> MOVIE LIST</h2>'
-  <img src="/assets/jmages/imllogo2.png"/>
+  <img src="./assets/jmages/imllogo2.png"/>
   <app-nav-bar></app-nav-bar>
   <router-outlet></router-outlet>
   `,
