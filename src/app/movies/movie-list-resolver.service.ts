@@ -8,9 +8,9 @@ import { IMovie } from './shared/movie.model';
 })
 export class MovieListResolverService implements Resolve <any> {
 
-  constructor(private movieService: MoviehttpserviceService) { }
+  constructor(private movieservice: MoviehttpserviceService) { }
   resolve(){
-    return this.movieService.getMovies();
+    return this.movieservice.getMovies();
 /******** 
 const cm_movies: IMovie[] =  
     [{"movie_id":1,"movie_tittle":"Diamonds Are Forever - James Bond","movie_year":1977,

@@ -1,6 +1,0 @@
-{
-    "http://localhost/alcmoviewww/movies.php": {
-        "target": "http://localhost/alcmoviewww/movies.php",
-        "secure": false
-    }
-}

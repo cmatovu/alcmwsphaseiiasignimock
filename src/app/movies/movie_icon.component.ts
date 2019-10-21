@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MoviehttpserviceService } from './moviehttpservice.service';
 //import { EventEmitter } from 'events';
 
 @Component({
@@ -14,8 +15,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 <button (click) = "cmshowmovie_details()"> Details </button>
 <button (click) = "cmfavorite_movie()"> Favorite </button>
   `,
-  styleUrls: ['./movies.component.css']
-//  styleUrls: ['./movie_icon.component.css']
+//  styleUrls: ['./movies.component.css']
+  styleUrls: ['./movie_icon.component.css']
 
 // styles: [`.cmbgcolor { background-color: #ff00ff;}`]
 })
@@ -44,6 +45,7 @@ export class Movie_iconComponent implements OnInit {
     }
     
       ngOnInit() {
+
   }
 
 }

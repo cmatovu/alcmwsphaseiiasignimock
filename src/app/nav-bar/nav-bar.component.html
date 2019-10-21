@@ -7,17 +7,13 @@
       <div class="collapse navbar-collapse">
       <ul>
         <li>
-            <a routerLinkActive="active"
+            <a  [routerLink] = "['/movies']"
+            routerLinkActive="active"
             routerLinkActiveOptions = "{exact:true}">  Home </a>
         </li>
         <li>
             <a routerLinkActive="active"
-            routerLinkActiveOptions = "{exact:true}">  About Us </a>
-        </li>
-        <li>
-            <a [routerLink] = "['/movies']"
-            routerLinkActive="active" 
-            routerLinkActiveOptions = "{exact:true}"> Movie List </a>
+            routerLinkActiveOptions = "{exact:true}">  My Favorites </a>
         </li>
         <li>
             <a routerLinkActive="active"
@@ -29,11 +25,13 @@
         </li>
         <li>
 
-            <form id="searchForm"  class="navbar-form navbar-right"  >
+            <form #searchForm = "ngForm" id="searchForm"  class="navbar-form navbar-right" 
+             (ngSubmit) = "saveSearch(searchForm.value)" >
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search movies" >
+                  <input  (ngModel) = "searchTerm" type="text" class="form-control" placeholder="Search movies" 
+                 name="searchTerm" id="searchTerm">
                 </div>
-                <button class="btn btn-default" >
+                <button class="btn btn-default"  [routerLink] = "['/movies/',searchTerm]">
                   Search
                 </button>
               </form>

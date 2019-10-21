@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieserviceService } from '../movies/shared/movieservice.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { IMovie } from '../movies/shared';
+import { MoviehttpserviceService } from '../movies/moviehttpservice.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -8,17 +9,24 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  selectedmovie:any
+  movie:IMovie
+ addMode: boolean
 
-  constructor(private movieService: MovieserviceService,
+ //constructor(private movieService: MovieserviceService,
+  constructor(private movieService: MoviehttpserviceService,
     private route:ActivatedRoute) {
     //movie:any
    }
 
   ngOnInit() {
-    this.selectedmovie =  this.movieService.getMovie(
-      +this.route.snapshot.params['id']
-    );
+   // );
+   this.movie = this.route.snapshot.data['movie']
+//   this.route.data.forEach((data) =>  {
+//       this.movie = data['movie'];
+//       this.addMode = false;
+       // debug
+      // alert(" Getting details for: " + data['movie']);
+//   })
   }
 
 }

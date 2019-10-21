@@ -32,12 +32,20 @@ export class MoviehttpserviceService {
  //   return this.http.get<IMovie[]>('http://localhost/alcmoviewww/movies.php')
  //   .pipe(catchError(this.handleError<IMovie[]> ('getMovies', [])))
  // }
-  getMovies(): Observable<IMovie[]>  {
-    return this.http.get<IMovie[]>('http://localhost/alcmoviewww/movies.php')
-    .pipe(catchError(this.handleError<IMovie[]> ('getMovies', [])))
-  }
-  getMovie(id:number)  {
-    //return CMMOVIES.find(movie => movie.movie_id === id)
+ // search movies
+ searchMovies(searchTearm: string): Observable<IMovie[]>  {
+  return this.http.get<IMovie[]>('http://localhost/alcmoviewww/searchmovies.php?searchTerm=' + searchTearm)
+  .pipe(catchError(this.handleError<IMovie[]> ('searchMovies', [])))
+}
+// get all movies
+getMovies(): Observable<IMovie[]>  {
+  return this.http.get<IMovie[]>('http://localhost/alcmoviewww/getmovies.php')
+  .pipe(catchError(this.handleError<IMovie[]> ('getMovies', [])))
+}
+// get one movie
+getMovie(id:number) :  Observable<IMovie>  {
+    return this.http.get<IMovie>('http://localhost/alcmoviewww/getmovie.php?id=' + id)
+    .pipe(catchError(this.handleError<IMovie> ('getMovie')))
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
